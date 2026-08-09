@@ -1,0 +1,21 @@
+name: Auto Update Exercises
+on:
+  schedule:
+    - cron: "0 6 * * *"   # 每天早上6點執行
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Generate exercises
+        run: python generate_exercises.py
+
+      - name: Commit & Push
+        run: |
+          git config --global user.name "AI Bot"
+          git config --global user.email "bot@example.com"
+          git add .
+          git commit -m "Daily exercise update"
+          git push
