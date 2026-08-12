@@ -1,21 +1,17 @@
-name: Auto Update Exercises
-on:
-  schedule:
-    - cron: "0 6 * * *"   # 每天早上6點執行
-jobs:
-  update:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
-
-      - name: Generate exercises
-        run: python generate_exercises.py
-
-      - name: Commit & Push
+      - name: Commit & Push changes if any
         run: |
           git config --global user.name "AI Bot"
           git config --global user.email "bot@example.com"
           git add .
-          git commit -m "Daily exercise update"
-          git push
+          if ! git diff-index --quiet HEAD; then
+            echo "Files changed:"
+            git diff --cached --name-only
+            git commit -m "Auto update exercises"
+            git push
+          else
+            echo "No changes to commit"
+          fi
+        env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+          
