@@ -1,17 +1,24 @@
-      - name: Commit & Push changes if any
-        run: |
-          git config --global user.name "AI Bot"
-          git config --global user.email "bot@example.com"
-          git add .
-          if ! git diff-index --quiet HEAD; then
-            echo "Files changed:"
-            git diff --cached --name-only
-            git commit -m "Auto update exercises"
-            git push
-          else
-            echo "No changes to commit"
-          fi
-        env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+// scripts/update-exercises.js
 
-          
+const fs = require('fs');
+const path = require('path');
+
+function updateExercises() {
+  const exercisesFile = path.join(__dirname, '../data/exercises.json');
+
+  // 假設 exercises.json 是存放練習題的檔案
+  if (fs.existsSync(exercisesFile)) {
+    const data = JSON.parse(fs.readFileSync(exercisesFile, 'utf-8'));
+
+    // 範例：加一個更新時間戳記
+    data.lastUpdated = new Date().toISOString();
+
+    fs.writeFileSync(exercisesFile, JSON.stringify(data, null, 2));
+    console.log('✅ Exercises updated successfully at', data.lastUpdated);
+  } else {
+    console.error('❌ exercises.json not found');
+    process.exit(1);
+  }
+}
+
+updateExercises();
