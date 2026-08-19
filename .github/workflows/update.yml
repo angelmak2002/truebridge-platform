@@ -1,24 +1,24 @@
-// scripts/update-exercises.js
+name: Update Exercises
 
-const fs = require('fs');
-const path = require('path');
+on:
+  schedule:
+    - cron: '59 23 * * 0'
+  workflow_dispatch:
 
-function updateExercises() {
-  const exercisesFile = path.join(__dirname, '../data/exercises.json');
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-  // 假設 exercises.json 是存放練習題的檔案
-  if (fs.existsSync(exercisesFile)) {
-    const data = JSON.parse(fs.readFileSync(exercisesFile, 'utf-8'));
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
 
-    // 範例：加一個更新時間戳記
-    data.lastUpdated = new Date().toISOString();
+      - name: Install dependencies
+        run: npm install
 
-    fs.writeFileSync(exercisesFile, JSON.stringify(data, null, 2));
-    console.log('✅ Exercises updated successfully at', data.lastUpdated);
-  } else {
-    console.error('❌ exercises.json not found');
-    process.exit(1);
-  }
-}
-
-updateExercises();
+      - name: Run update script
+        run: npm run update-exercises
