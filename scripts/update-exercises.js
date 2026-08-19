@@ -1,5 +1,3 @@
-// scripts/update-exercises.js
-
 const fs = require('fs');
 const path = require('path');
 
@@ -8,10 +6,7 @@ function updateExercises() {
 
   if (fs.existsSync(exercisesFile)) {
     const data = JSON.parse(fs.readFileSync(exercisesFile, 'utf-8'));
-
-    // 範例：加一個更新時間戳記
     data.lastUpdated = new Date().toISOString();
-
     fs.writeFileSync(exercisesFile, JSON.stringify(data, null, 2));
     console.log('✅ Exercises updated successfully at', data.lastUpdated);
   } else {
