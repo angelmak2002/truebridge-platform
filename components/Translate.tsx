@@ -47,7 +47,7 @@ export const Translate: React.FC<TranslateProps> = ({ children, className }) => 
         const translatedValue = langDict[originalText];
         setTranslatedText(translatedValue);
         setCachedTranslation(cacheKey, translatedValue);
-        console.log(`✅ Found in dictionary (direct key): "${originalText}" → "${translatedValue}" (${language})`);
+        console.log(`??Found in dictionary (direct key): "${originalText}" ??"${translatedValue}" (${language})`);
         return;
       }
 
@@ -59,7 +59,7 @@ export const Translate: React.FC<TranslateProps> = ({ children, className }) => 
             const translatedValue = langDict[key];
             setTranslatedText(translatedValue);
             setCachedTranslation(cacheKey, translatedValue);
-            console.log(`✅ Found in dictionary (reverse lookup): "${originalText}" → "${translatedValue}" (${language})`);
+            console.log(`??Found in dictionary (reverse lookup): "${originalText}" ??"${translatedValue}" (${language})`);
             return;
           }
         }
@@ -75,7 +75,7 @@ export const Translate: React.FC<TranslateProps> = ({ children, className }) => 
         setTranslatedText(translated);
         setCachedTranslation(cacheKey, translated);
         
-        console.log(`✅ Translated via API: "${originalText}" → "${translated}" (${language})`);
+        console.log(`??Translated via API: "${originalText}" ??"${translated}" (${language})`);
       } catch (error) {
         console.error('Translation error:', error);
         setTranslatedText(originalText);
@@ -141,7 +141,7 @@ export const TranslateBlock: React.FC<TranslateProps> = ({ children, className }
         const translatedValue = langDict[originalText];
         setTranslatedText(translatedValue);
         setCachedTranslation(cacheKey, translatedValue);
-        console.log(`✅ Found in dictionary (direct key): "${originalText}" → "${translatedValue}" (${language})`);
+        console.log(`??Found in dictionary (direct key): "${originalText}" ??"${translatedValue}" (${language})`);
         return;
       }
 
@@ -153,7 +153,7 @@ export const TranslateBlock: React.FC<TranslateProps> = ({ children, className }
             const translatedValue = langDict[key];
             setTranslatedText(translatedValue);
             setCachedTranslation(cacheKey, translatedValue);
-            console.log(`✅ Found in dictionary (reverse lookup): "${originalText}" → "${translatedValue}" (${language})`);
+            console.log(`??Found in dictionary (reverse lookup): "${originalText}" ??"${translatedValue}" (${language})`);
             return;
           }
         }
@@ -169,7 +169,7 @@ export const TranslateBlock: React.FC<TranslateProps> = ({ children, className }
         setTranslatedText(translated);
         setCachedTranslation(cacheKey, translated);
         
-        console.log(`✅ Translated block via API: "${originalText}" → "${translated}" (${language})`);
+        console.log(`??Translated block via API: "${originalText}" ??"${translated}" (${language})`);
       } catch (error) {
         console.error('Translation error:', error);
         setTranslatedText(originalText);

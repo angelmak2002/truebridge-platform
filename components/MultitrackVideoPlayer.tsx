@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState, useCallback } from 'react';
 import { Volume2, Subtitles, Play, Pause, Maximize2 } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { videosWithAudio } from '@/data/videosWithAudioData';
+import { Button } from './components/ui/button';
+import { videosWithAudio } from './data/videosWithAudioData';
 
 interface AudioTrack {
   label: string;
@@ -32,14 +32,14 @@ interface MultitrackVideoPlayerProps {
 }
 
 /**
- * 解析VTT字幕文件為時間碼數組
+ * �??VTT字�??�件?��??�碼?��?
  */
 function parseVTT(vttText: string): SubtitleCue[] {
   const cues: SubtitleCue[] = [];
   const lines = vttText.split('\n');
   let i = 0;
 
-  // 跳過WEBVTT頭部
+  // 跳�?WEBVTT?�部
   while (i < lines.length && !lines[i].includes('-->')) {
     i++;
   }
@@ -51,7 +51,7 @@ function parseVTT(vttText: string): SubtitleCue[] {
       const start = parseTimeToSeconds(startStr);
       const end = parseTimeToSeconds(endStr);
 
-      // 收集字幕文本
+      // ?��?字�??�本
       i++;
       const textLines: string[] = [];
       while (i < lines.length && lines[i].trim() !== '') {
@@ -83,9 +83,9 @@ function parseTimeToSeconds(timeStr: string): number {
 }
 
 /**
- * 多軌道視頻播放器組件
- * 通過切換視頻文件來實現多語言音軌切換
- * 使用自定義字幕渲染覆蓋層（避免CORS問題）
+ * 多�??��??�播?�器組件
+ * ?��??��?視頻?�件來實?��?語�??��??��?
+ * 使用?��?義�?幕渲?��??�層（避?�CORS?��?�?
  */
 export const MultitrackVideoPlayer: React.FC<MultitrackVideoPlayerProps> = ({
   videoUrl,
@@ -107,7 +107,7 @@ export const MultitrackVideoPlayer: React.FC<MultitrackVideoPlayerProps> = ({
   const [subtitleCues, setSubtitleCues] = useState<SubtitleCue[]>([]);
   const [currentSubtitleText, setCurrentSubtitleText] = useState('');
 
-  // 根據選擇的音軌獲取對應的視頻URL
+  // ?��??��??�音軌獲?��??��?視頻URL
   const getVideoUrlForTrack = useCallback((trackIndex: string): string => {
     if (!videoId) return videoUrl;
 
@@ -124,7 +124,7 @@ export const MultitrackVideoPlayer: React.FC<MultitrackVideoPlayerProps> = ({
     return langData.url;
   }, [videoId, videoUrl, audioTracks]);
 
-  // 加載字幕文件
+  // ?��?字�??�件
   const loadSubtitle = useCallback(async (trackIndex: string) => {
     setSubtitleCues([]);
     setCurrentSubtitleText('');
@@ -143,16 +143,16 @@ export const MultitrackVideoPlayer: React.FC<MultitrackVideoPlayerProps> = ({
       const cues = parseVTT(text);
       setSubtitleCues(cues);
     } catch (err) {
-      console.error('字幕加載失敗:', err);
+      console.error('字�??��?失�?:', err);
     }
   }, [subtitleTracks]);
 
-  // 當字幕選擇改變時加載字幕
+  // ?��?幕選?�改變�??��?字�?
   useEffect(() => {
     loadSubtitle(selectedSubtitleTrack);
   }, [selectedSubtitleTrack]);
 
-  // 根據當前播放時間更新字幕文本
+  // ?��??��??�放?��??�新字�??�本
   useEffect(() => {
     if (subtitleCues.length === 0) {
       setCurrentSubtitleText('');
@@ -166,7 +166,7 @@ export const MultitrackVideoPlayer: React.FC<MultitrackVideoPlayerProps> = ({
     setCurrentSubtitleText(activeCue ? activeCue.text : '');
   }, [currentTime, subtitleCues]);
 
-  // 處理音軌變更 - 切換視頻文件
+  // ?��??��?變更 - ?��?視頻?�件
   const handleAudioTrackChange = (trackIndex: string) => {
     const wasPlaying = isPlaying;
     const savedTime = currentTime;
@@ -177,7 +177,7 @@ export const MultitrackVideoPlayer: React.FC<MultitrackVideoPlayerProps> = ({
     if (newUrl !== currentVideoUrl) {
       setCurrentVideoUrl(newUrl);
 
-      // 直接修改video元素的src屬性
+      // ?�接修改video?��??�src屬�?
       if (videoRef.current) {
         const video = videoRef.current;
         video.src = newUrl;
@@ -195,12 +195,12 @@ export const MultitrackVideoPlayer: React.FC<MultitrackVideoPlayerProps> = ({
     }
   };
 
-  // 處理字幕變更
+  // ?��?字�?變更
   const handleSubtitleTrackChange = (trackIndex: string) => {
     setSelectedSubtitleTrack(trackIndex);
   };
 
-  // 播放/暫停
+  // ?�放/?��?
   const togglePlay = () => {
     if (videoRef.current) {
       if (isPlaying) {
@@ -212,7 +212,7 @@ export const MultitrackVideoPlayer: React.FC<MultitrackVideoPlayerProps> = ({
     }
   };
 
-  // 全屏
+  // ?��?
   const handleFullscreen = () => {
     if (videoRef.current) {
       const container = videoRef.current.parentElement;
@@ -226,7 +226,7 @@ export const MultitrackVideoPlayer: React.FC<MultitrackVideoPlayerProps> = ({
     }
   };
 
-  // 格式化時間
+  // ?��??��???
   const formatTime = (seconds: number) => {
     if (!seconds) return '0:00';
     const mins = Math.floor(seconds / 60);
@@ -251,10 +251,10 @@ export const MultitrackVideoPlayer: React.FC<MultitrackVideoPlayerProps> = ({
           }}
           controls={false}
         >
-          您的瀏覽器不支持HTML5視頻播放器
+          ?��??�覽?��??��?HTML5視頻?�放??
         </video>
 
-        {/* 自定義字幕覆蓋層 */}
+        {/* ?��?義�?幕�??�層 */}
         {currentSubtitleText && (
           <div className="absolute bottom-16 left-0 right-0 flex justify-center pointer-events-none px-4">
             <div className="bg-black/80 text-white text-sm md:text-base px-4 py-2 rounded max-w-[90%] text-center leading-relaxed">
@@ -265,9 +265,9 @@ export const MultitrackVideoPlayer: React.FC<MultitrackVideoPlayerProps> = ({
           </div>
         )}
 
-        {/* 控制欄 */}
+        {/* ?�制�?*/}
         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4 space-y-2">
-          {/* 進度條 */}
+          {/* ?�度�?*/}
           <div className="flex items-center gap-2">
             <input
               type="range"
@@ -283,10 +283,10 @@ export const MultitrackVideoPlayer: React.FC<MultitrackVideoPlayerProps> = ({
             />
           </div>
 
-          {/* 控制按鈕 */}
+          {/* ?�制?��? */}
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              {/* 播放/暫停 */}
+              {/* ?�放/?��? */}
               <Button
                 size="sm"
                 variant="ghost"
@@ -300,14 +300,14 @@ export const MultitrackVideoPlayer: React.FC<MultitrackVideoPlayerProps> = ({
                 )}
               </Button>
 
-              {/* 時間顯示 */}
+              {/* ?��?顯示 */}
               <span className="text-white text-xs">
                 {formatTime(currentTime)} / {formatTime(duration)}
               </span>
             </div>
 
             <div className="flex items-center gap-2">
-              {/* 音軌選擇 */}
+              {/* ?��??��? */}
               <div className="flex items-center gap-2">
                 <Volume2 className="w-4 h-4 text-white" />
                 <select
@@ -323,7 +323,7 @@ export const MultitrackVideoPlayer: React.FC<MultitrackVideoPlayerProps> = ({
                 </select>
               </div>
 
-              {/* 字幕選擇 */}
+              {/* 字�??��? */}
               {subtitleTracks.length > 0 && (
                 <div className="flex items-center gap-2">
                   <Subtitles className="w-4 h-4 text-white" />
@@ -332,7 +332,7 @@ export const MultitrackVideoPlayer: React.FC<MultitrackVideoPlayerProps> = ({
                     onChange={(e) => handleSubtitleTrackChange(e.target.value)}
                     className="bg-black/50 text-white text-xs px-2 py-1 rounded border border-white/20 hover:border-white/40"
                   >
-                    <option value="off">無字幕</option>
+                    <option value="off">?��?�?/option>
                     {subtitleTracks.map((track, index) => (
                       <option key={index} value={index.toString()}>
                         {track.label}
@@ -342,7 +342,7 @@ export const MultitrackVideoPlayer: React.FC<MultitrackVideoPlayerProps> = ({
                 </div>
               )}
 
-              {/* 全屏 */}
+              {/* ?��? */}
               <Button
                 size="sm"
                 variant="ghost"
@@ -356,7 +356,7 @@ export const MultitrackVideoPlayer: React.FC<MultitrackVideoPlayerProps> = ({
         </div>
       </div>
 
-      {/* 標題 */}
+      {/* 標�? */}
       {title && (
         <div className="bg-gray-900 px-4 py-2">
           <h3 className="text-white font-semibold">{title}</h3>

@@ -1,9 +1,9 @@
 import React, { useState, useMemo } from 'react';
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
+import { Button } from "./components/ui/button";
+import { Card } from "./components/ui/card";
 import { ChevronRight, CheckCircle, XCircle } from "lucide-react";
-import type { GradeExercises as MultilingualGradeExercises } from "@/data/exercisesDataMultilingual";
-import { useLanguage } from "@/contexts/LanguageContext";
+import type { GradeExercises as MultilingualGradeExercises } from "./data/exercisesDataMultilingual";
+import { useLanguage } from "./contexts/LanguageContext";
 
 interface QuizInterfaceProps {
   gradeData: MultilingualGradeExercises;
@@ -81,19 +81,19 @@ export default function QuizInterface({ gradeData, onBack }: QuizInterfaceProps)
           {/* Results Summary */}
           <Card className="p-8 mb-8 bg-gradient-to-r from-blue-50 to-sky-50 border-2 border-blue-300">
             <div className="text-center mb-8">
-              <h2 className="text-3xl font-bold text-brand-sky mb-4">ç­”é¡Œçµæœ</h2>
+              <h2 className="text-3xl font-bold text-brand-sky mb-4">ç­”é?çµæ?</h2>
               <div className="text-5xl font-bold text-blue-600 mb-2">
                 {correctCount}/{gradeData.questions.length}
               </div>
               <p className="text-lg text-gray-600">
-                æ­£ç¢ºç‡ï¼š{Math.round((correctCount / gradeData.questions.length) * 100)}%
+                æ­?¢º?‡ï?{Math.round((correctCount / gradeData.questions.length) * 100)}%
               </p>
             </div>
           </Card>
 
           {/* Answer Review */}
           <Card className="p-8 mb-8">
-            <h3 className="text-2xl font-bold mb-6 text-gray-800">ç­”é¡Œè©³æƒ…</h3>
+            <h3 className="text-2xl font-bold mb-6 text-gray-800">ç­”é?è©³æ?</h3>
             <div className="space-y-4">
               {gradeData.questions.map((question, idx) => {
                 const isCorrect = selectedAnswers[idx] === question.correctAnswer;
@@ -107,18 +107,18 @@ export default function QuizInterface({ gradeData, onBack }: QuizInterfaceProps)
                       )}
                       <div className="flex-1">
                         <p className="font-semibold text-gray-800">
-                          ç¬¬ {idx + 1} é¡Œ ({getDisplayText(question.subject, question.subject)})
+                          ç¬?{idx + 1} é¡?({getDisplayText(question.subject, question.subject)})
                         </p>
                         <p className="text-gray-600 mt-1">{getDisplayText(question.question, question.subject)}</p>
                         <p className="text-sm mt-2">
-                          æ‚¨çš„ç­”æ¡ˆï¼š
+                          ?¨ç?ç­”æ?ï¼?
                           <span className={isCorrect ? "text-green-600 font-bold" : "text-red-600 font-bold"}>
-                            {selectedAnswers[idx] !== null ? getDisplayText(question.options[selectedAnswers[idx]!], question.subject) : "æœªä½œç­”"}
+                            {selectedAnswers[idx] !== null ? getDisplayText(question.options[selectedAnswers[idx]!], question.subject) : "?ªä?ç­?}
                           </span>
                         </p>
                         {!isCorrect && (
                           <p className="text-sm text-green-600 font-bold">
-                            æ­£ç¢ºç­”æ¡ˆï¼š{getDisplayText(question.options[question.correctAnswer], question.subject)}
+                            æ­?¢ºç­”æ?ï¼š{getDisplayText(question.options[question.correctAnswer], question.subject)}
                           </p>
                         )}
                       </div>
@@ -131,11 +131,11 @@ export default function QuizInterface({ gradeData, onBack }: QuizInterfaceProps)
 
           {/* Answer Key */}
           <Card className="p-8 mb-8 bg-blue-50 border-2 border-blue-200">
-            <h3 className="text-2xl font-bold mb-6 text-gray-800">å®Œæ•´ç­”æ¡ˆ</h3>
+            <h3 className="text-2xl font-bold mb-6 text-gray-800">å®Œæ•´ç­”æ?</h3>
             <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
               {gradeData.questions.map((question, idx) => (
                 <div key={idx} className="p-3 bg-white rounded border-2 border-blue-300 text-center">
-                  <p className="text-sm font-semibold text-gray-600">ç¬¬ {idx + 1} é¡Œ</p>
+                  <p className="text-sm font-semibold text-gray-600">ç¬?{idx + 1} é¡?/p>
                   <p className="text-lg font-bold text-blue-600">
                     {getDisplayText(question.options[question.correctAnswer], question.subject).charAt(0)}
                   </p>
@@ -150,13 +150,13 @@ export default function QuizInterface({ gradeData, onBack }: QuizInterfaceProps)
               onClick={handleRetry}
               className="bg-blue-500 hover:bg-blue-600 text-white font-bold px-8 py-3 text-lg"
             >
-              é‡åš
+              ?å?
             </Button>
             <Button
               onClick={onBack}
               className="bg-gray-500 hover:bg-gray-600 text-white font-bold px-8 py-3 text-lg"
             >
-              è¿”å›é é¢
+              è¿”å??é¢
             </Button>
           </div>
         </div>
@@ -171,7 +171,7 @@ export default function QuizInterface({ gradeData, onBack }: QuizInterfaceProps)
         <div className="mb-8">
           <div className="flex justify-between items-center mb-2">
             <span className="text-sm font-semibold text-gray-600">
-              ç¬¬ {currentQuestionIndex + 1} / {gradeData.questions.length} é¡Œ
+              ç¬?{currentQuestionIndex + 1} / {gradeData.questions.length} é¡?
             </span>
             <span className="text-sm font-semibold text-gray-600">
               {getDisplayText(gradeData.gradeLabel, gradeData.gradeLabel)} - {getDisplayText(currentQuestion.subject, currentQuestion.subject)}
@@ -209,7 +209,7 @@ export default function QuizInterface({ gradeData, onBack }: QuizInterfaceProps)
               <div className="flex flex-col items-center justify-center w-full">
                 <span>{getDisplayText(option, currentQuestion.subject)}</span>
                 {currentAnswer === idx && (
-                  <span className="absolute top-2 right-2 text-xl">âœ“</span>
+                  <span className="absolute top-2 right-2 text-xl">??/span>
                 )}
               </div>
             </Button>
@@ -223,7 +223,7 @@ export default function QuizInterface({ gradeData, onBack }: QuizInterfaceProps)
             disabled={currentQuestionIndex === 0}
             className="bg-gray-500 hover:bg-gray-600 text-white font-bold px-6 py-2"
           >
-            ä¸Šä¸€é¡Œ
+            ä¸Šä?é¡?
           </Button>
 
           {currentQuestionIndex === gradeData.questions.length - 1 ? (
@@ -231,14 +231,14 @@ export default function QuizInterface({ gradeData, onBack }: QuizInterfaceProps)
               onClick={handleSubmit}
               className="bg-green-500 hover:bg-green-600 text-white font-bold px-8 py-2 text-lg"
             >
-              æäº¤ç­”æ¡ˆ
+              ?äº¤ç­”æ?
             </Button>
           ) : (
             <Button
               onClick={() => setCurrentQuestionIndex(currentQuestionIndex + 1)}
               className="bg-blue-500 hover:bg-blue-600 text-white font-bold px-6 py-2"
             >
-              ä¸‹ä¸€é¡Œ
+              ä¸‹ä?é¡?
             </Button>
           )}
         </div>
@@ -250,7 +250,7 @@ export default function QuizInterface({ gradeData, onBack }: QuizInterfaceProps)
             variant="outline"
             className="text-gray-600 hover:text-brand-sky"
           >
-            è¿”å›ç·´ç¿’é é¢
+            è¿”å?ç·´ç??é¢
           </Button>
         </div>
       </div>

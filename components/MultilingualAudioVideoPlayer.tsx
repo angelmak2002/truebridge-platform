@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect, useCallback } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { videosWithAudio, getVideoByLanguage, getSubtitlesByLanguage } from '@/data/videosWithAudioData';
+import { videosWithAudio, getVideoByLanguage, getSubtitlesByLanguage } from './data/videosWithAudioData';
 
 interface MultilingualAudioVideoPlayerProps {
   videoId: string;
@@ -18,9 +18,9 @@ export const MultilingualAudioVideoPlayer: React.FC<MultilingualAudioVideoPlayer
 
   const video = videosWithAudio.find(v => v.id === videoId);
 
-  // 使用fetch加載字幕文件並創建Blob URL以避免CORS問題
+  // 使用fetch?��?字�??�件並創建Blob URL以避?�CORS?��?
   const loadSubtitles = useCallback(async (lang: string) => {
-    // 清除舊的Blob URL
+    // 清除?��?Blob URL
     if (subtitleBlobUrl) {
       URL.revokeObjectURL(subtitleBlobUrl);
       setSubtitleBlobUrl(null);
@@ -34,10 +34,10 @@ export const MultilingualAudioVideoPlayer: React.FC<MultilingualAudioVideoPlayer
       if (!response.ok) throw new Error(`Failed to fetch subtitles: ${response.status}`);
       const text = await response.text();
       
-      // 確保是VTT格式
+      // 確�??�VTT?��?
       let vttContent = text;
       if (!text.startsWith('WEBVTT')) {
-        // 如果是SRT格式，轉換為VTT
+        // 如�??�SRT?��?，�??�為VTT
         vttContent = 'WEBVTT\n\n' + text.replace(/(\d+)\n(\d{2}:\d{2}:\d{2}),(\d{3}) --> (\d{2}:\d{2}:\d{2}),(\d{3})/g, '$1\n$2.$3 --> $4.$5');
       }
       
@@ -45,16 +45,16 @@ export const MultilingualAudioVideoPlayer: React.FC<MultilingualAudioVideoPlayer
       const blobUrl = URL.createObjectURL(blob);
       setSubtitleBlobUrl(blobUrl);
     } catch (err) {
-      console.error('字幕加載失敗:', err);
+      console.error('字�??��?失�?:', err);
     }
   }, [videoId, subtitleBlobUrl]);
 
-  // 當語言改變時，加載對應字幕
+  // ?��?言?��??��??��?對�?字�?
   useEffect(() => {
     loadSubtitles(language);
   }, [language, videoId]);
 
-  // 當字幕Blob URL更新時，設置track的mode
+  // ?��?幕Blob URL?�新?��?設置track?�mode
   useEffect(() => {
     if (videoRef.current && videoRef.current.textTracks.length > 0) {
       for (let i = 0; i < videoRef.current.textTracks.length; i++) {
@@ -63,7 +63,7 @@ export const MultilingualAudioVideoPlayer: React.FC<MultilingualAudioVideoPlayer
     }
   }, [subtitleBlobUrl, showSubtitles]);
 
-  // 當全局語言改變時，更新視頻語言
+  // ?�全局語�??��??��??�新視頻語�?
   useEffect(() => {
     setCurrentLanguage(language);
 
@@ -76,13 +76,13 @@ export const MultilingualAudioVideoPlayer: React.FC<MultilingualAudioVideoPlayer
         videoRef.current.currentTime = savedTime;
 
         if (isPlaying) {
-          videoRef.current.play().catch(err => console.error('播放出錯:', err));
+          videoRef.current.play().catch(err => console.error('?�放?�錯:', err));
         }
       }
     }
   }, [language, videoId]);
 
-  // 清理Blob URL
+  // 清�?Blob URL
   useEffect(() => {
     return () => {
       if (subtitleBlobUrl) {
@@ -92,13 +92,13 @@ export const MultilingualAudioVideoPlayer: React.FC<MultilingualAudioVideoPlayer
   }, [subtitleBlobUrl]);
 
   if (!video) {
-    return <div className="text-center py-8 text-gray-500">視頻未找到</div>;
+    return <div className="text-center py-8 text-gray-500">視頻?�找??/div>;
   }
 
   const videoUrl = getVideoByLanguage(videoId, currentLanguage);
 
   if (!videoUrl) {
-    return <div className="text-center py-8 text-gray-500">無法加載視頻</div>;
+    return <div className="text-center py-8 text-gray-500">?��??��?視頻</div>;
   }
 
   const handlePlayPause = () => {
@@ -107,7 +107,7 @@ export const MultilingualAudioVideoPlayer: React.FC<MultilingualAudioVideoPlayer
         videoRef.current.pause();
         setIsPlaying(false);
       } else {
-        videoRef.current.play().catch(err => console.error('播放出錯:', err));
+        videoRef.current.play().catch(err => console.error('?�放?�錯:', err));
         setIsPlaying(true);
       }
     }
@@ -122,7 +122,7 @@ export const MultilingualAudioVideoPlayer: React.FC<MultilingualAudioVideoPlayer
   const handleLoadedMetadata = () => {
     if (videoRef.current) {
       setDuration(videoRef.current.duration);
-      // 確保字幕軌道mode正確
+      // 確�?字�?軌�?mode�?��
       if (videoRef.current.textTracks.length > 0) {
         for (let i = 0; i < videoRef.current.textTracks.length; i++) {
           videoRef.current.textTracks[i].mode = showSubtitles ? 'showing' : 'hidden';
@@ -164,7 +164,7 @@ export const MultilingualAudioVideoPlayer: React.FC<MultilingualAudioVideoPlayer
 
   return (
     <div className="w-full bg-black rounded-lg overflow-hidden">
-      {/* 視頻播放器 */}
+      {/* 視頻?�放??*/}
       <div className="relative bg-black aspect-video group">
         <video
           ref={videoRef}
@@ -176,7 +176,7 @@ export const MultilingualAudioVideoPlayer: React.FC<MultilingualAudioVideoPlayer
           controls={false}
           style={{ backgroundColor: '#000' }}
         >
-          {/* 使用Blob URL加載字幕軌道 */}
+          {/* 使用Blob URL?��?字�?軌�? */}
           {subtitleBlobUrl && (
             <track
               key={subtitleBlobUrl}
@@ -189,9 +189,9 @@ export const MultilingualAudioVideoPlayer: React.FC<MultilingualAudioVideoPlayer
           )}
         </video>
 
-        {/* 播放控制欄 */}
+        {/* ?�放?�制�?*/}
         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/80 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          {/* 進度條 */}
+          {/* ?�度�?*/}
           <input
             type="range"
             min="0"
@@ -204,14 +204,14 @@ export const MultilingualAudioVideoPlayer: React.FC<MultilingualAudioVideoPlayer
             }}
           />
 
-          {/* 控制按鈕 */}
+          {/* ?�制?��? */}
           <div className="flex items-center justify-between mt-3 text-white text-sm">
             <div className="flex items-center gap-3">
-              {/* 播放/暫停按鈕 */}
+              {/* ?�放/?��??��? */}
               <button
                 onClick={handlePlayPause}
                 className="hover:opacity-80 transition"
-                title={isPlaying ? '暫停' : '播放'}
+                title={isPlaying ? '?��?' : '?�放'}
               >
                 {isPlaying ? (
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -224,7 +224,7 @@ export const MultilingualAudioVideoPlayer: React.FC<MultilingualAudioVideoPlayer
                 )}
               </button>
 
-              {/* 字幕開關按鈕 */}
+              {/* 字�??��??��? */}
               <button
                 onClick={handleSubtitleToggle}
                 className={`hover:opacity-80 transition px-1.5 py-0.5 rounded text-xs font-bold border ${
@@ -232,26 +232,26 @@ export const MultilingualAudioVideoPlayer: React.FC<MultilingualAudioVideoPlayer
                     ? 'bg-white text-black border-white'
                     : 'bg-transparent text-white/60 border-white/40'
                 }`}
-                title={showSubtitles ? '隱藏字幕' : '顯示字幕'}
+                title={showSubtitles ? '?��?字�?' : '顯示字�?'}
               >
                 CC
               </button>
 
-              {/* 時間顯示 */}
+              {/* ?��?顯示 */}
               <span className="text-xs">
                 {formatTime(currentTime)} / {formatTime(duration)}
               </span>
             </div>
 
-            {/* 全屏按鈕 */}
+            {/* ?��??��? */}
             <button
               onClick={() => {
                 if (videoRef.current) {
-                  videoRef.current.requestFullscreen?.().catch(err => console.error('全屏出錯:', err));
+                  videoRef.current.requestFullscreen?.().catch(err => console.error('?��??�錯:', err));
                 }
               }}
               className="hover:opacity-80 transition"
-              title="全屏"
+              title="?��?"
             >
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z" />

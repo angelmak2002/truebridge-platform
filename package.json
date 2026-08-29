@@ -3,20 +3,21 @@
   "version": "1.0.0",
   "type": "module",
   "license": "MIT",
+  "homepage": "https://angelmak2002.github.io/truebridge-platform",
   "scripts": {
-    "dev": "NODE_ENV=development tsx watch server/_core/index.ts",
-    "build": "vite build && esbuild server/_core/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist",
-    "start": "NODE_ENV=production node dist/index.js",
+    "build": "react-scripts build",
+    "start": "react-scripts start",
     "check": "tsc --noEmit",
     "format": "prettier --write .",
-    "test": "vitest run",
-    "db:push": "drizzle-kit generate && drizzle-kit migrate"
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "db:push": "drizzle-kit generate && drizzle-kit migrate",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.693.0",
     "@aws-sdk/s3-request-presigner": "^3.693.0",
-    "react": "^19.2.1",
-    "react-dom": "^19.2.1",
     "@hookform/resolvers": "^5.2.2",
     "@radix-ui/react-accordion": "^1.2.12",
     "@radix-ui/react-alert-dialog": "^1.1.15",
@@ -49,6 +50,8 @@
     "@trpc/react-query": "^11.6.0",
     "@trpc/server": "^11.6.0",
     "@types/nodemailer": "^8.0.1",
+    "ajv": "^8.20.0",
+    "ajv-keywords": "^5.1.0",
     "axios": "^1.12.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -67,7 +70,9 @@
     "nanoid": "^5.1.5",
     "next-themes": "^0.4.6",
     "nodemailer": "^9.0.1",
+    "react": "^18.3.1",
     "react-day-picker": "^9.11.1",
+    "react-dom": "^18.3.1",
     "react-hook-form": "^7.64.0",
     "react-resizable-panels": "^3.0.6",
     "recharts": "^2.15.2",
@@ -91,15 +96,18 @@
     "@vitejs/plugin-react": "^5.0.4",
     "add": "^2.0.6",
     "autoprefixer": "^10.4.20",
+    "cross-env": "^10.1.0",
     "drizzle-kit": "^0.31.4",
     "esbuild": "^0.25.0",
+    "gh-pages": "^6.3.0",
     "pnpm": "^10.15.1",
     "postcss": "^8.4.47",
     "prettier": "^3.6.2",
+    "react-scripts": "^5.0.1",
     "tailwindcss": "^4.1.14",
     "tsx": "^4.19.1",
     "tw-animate-css": "^1.4.0",
-    "typescript": "5.9.3",
+    "typescript": "^5.9.3",
     "vite": "^7.1.7",
     "vite-plugin-manus-runtime": "0.0.59",
     "vitest": "^2.1.4"
@@ -112,5 +120,17 @@
     "overrides": {
       "tailwindcss>nanoid": "3.3.7"
     }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
