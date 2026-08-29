@@ -6,7 +6,7 @@
   "homepage": "https://angelmak2002.github.io/truebridge-platform",
   "scripts": {
     "build": "react-scripts build",
-    "start": "react-scripts start",
+    "start": "node server.js",
     "check": "tsc --noEmit",
     "format": "prettier --write .",
     "test": "react-scripts test",
