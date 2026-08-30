@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/truebridge-platform/static/js/main.7309ec3f.js",
+    "index.html": "/truebridge-platform/index.html",
+    "main.7309ec3f.js.map": "/truebridge-platform/static/js/main.7309ec3f.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.7309ec3f.js"
+  ]
+}
