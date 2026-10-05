@@ -1,0 +1,21 @@
+
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "react",
+    "@typescript-eslint"
+  ],
+  "rules": {
+    "react/jsx-closing-tag-location": "error",
+    "react/jsx-no-undef": "error",
+    "react/jsx-no-duplicate-props": "error"
+  }
+}
