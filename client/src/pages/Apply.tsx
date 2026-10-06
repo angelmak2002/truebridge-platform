@@ -97,21 +97,22 @@ setFormData({
       window.scrollTo({ top: 0, behavior: "smooth" });
 
     try {
-      await fetch("/api/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-    studentName: formData.parentName,
-    parentPhone: formData.whatsapp,
-    parentEmail: formData.email,
-    grade: t(formData.grade),
-    subject: formData.subjects.map((k) => t(k)).join("、"),
-    remarks: formData.painPoints,
-      }),
-    });
-  
-    } catch (err) {
-      console.log("contact api error", err);
+      const fd = new FormData();
+  fd.append("_subject", `Truebridge 新申請 - ${formData.parentName}`);
+  fd.append("_captcha", "false");
+  fd.append("_template", "table");
+  fd.append("家長姓名", formData.parentName);
+  fd.append("WhatsApp", formData.whatsapp);
+  fd.append("Email", formData.email);
+  fd.append("年級", t(formData.grade));
+  fd.append("科目", formData.subjects.map((k) => t(k)).join("、"));
+  fd.append("備註", formData.painPoints);
+  await fetch("https://formsubmit.co/info@truebridge.asia", {
+    method: "POST",
+    body: fd,
+  });
+} catch (err) {
+  console.log("formsubmit error", err);
      }
   };
 
