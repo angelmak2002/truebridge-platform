@@ -1266,11 +1266,22 @@ export function Home() {
                       };
 
                       try {
-                        const res = await fetch('/api/contact', {
-                          method: 'POST',
-                          headers: { 'Content-Type': 'application/json' },
-                          body: JSON.stringify(data),
-                        });
+                        const res = await fetch('https://formsubmit.co/86b8b32c25c9330ea67b72fc2b09e417', {
+                        method: 'POST',
+                        headers: { 
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+  },
+            body: JSON.stringify({
+                         name: data.studentName,
+                        phone: data.parentPhone,
+                       email: data.parentEmail,
+                       subject: data.subject,
+                        grade: data.grade,
+                       message: data.remarks,
+    _subject: `TrueBridge 首頁試堂申請 - ${data.studentName}`,
+    _captcha: "false"
+  }),                        });
                         console.log('後端回應', await res.text());
                         setTrialFormState({
                           submitted: true,

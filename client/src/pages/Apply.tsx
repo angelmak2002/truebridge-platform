@@ -107,7 +107,7 @@ setFormData({
   fd.append("年級", t(formData.grade));
   fd.append("科目", formData.subjects.map((k) => t(k)).join("、"));
   fd.append("備註", formData.painPoints);
-  await fetch("https://formsubmit.co/info@truebridge.asia", {
+  await fetch("https://formsubmit.co/86b8b32c25c9330ea67b72fc2b09e417", {
     method: "POST",
     body: fd,
   });
