@@ -681,7 +681,7 @@ export function Home() {
               {
                 id: 4,
                 name: '張佳琦',
-                img: '/manus-storage/teacher4_cv_21a420e9_2276f374.webp',
+                img: '/manus-storage/teacher4_cv_21a420e9_21f62adb.webp',
               },
               {
                 id: 5,
@@ -1266,28 +1266,31 @@ export function Home() {
                       };
 
                       try {
-                        const res = await fetch('https://formsubmit.co/86b8b32c25c9330ea67b72fc2b09e417', {
-                        method: 'POST',
-                        headers: { 
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json'
-  },
-            body: JSON.stringify({
-                         name: data.studentName,
-                        phone: data.parentPhone,
-                       email: data.parentEmail,
-                       subject: data.subject,
-                        grade: data.grade,
-                       message: data.remarks,
-    _subject: `TrueBridge 首頁試堂申請 - ${data.studentName}`,
-    _captcha: "false"
-  }),                        });
+                        const res = await fetch(
+                          'https://formsubmit.co/86b8b32c25c9330ea67b72fc2b09e417',
+                          {
+                            method: 'POST',
+                            headers: {
+                              'Content-Type': 'application/json',
+                              Accept: 'application/json',
+                            },
+                            body: JSON.stringify({
+                              name: data.studentName,
+                              phone: data.parentPhone,
+                              email: data.parentEmail,
+                              subject: data.subject,
+                              grade: data.grade,
+                              message: data.remarks,
+                              _subject: `TrueBridge 首頁試堂申請 - ${data.studentName}`,
+                              _captcha: 'false',
+                            }),
+                          }
+                        );
                         console.log('後端回應', await res.text());
                         setTrialFormState({
                           submitted: true,
                           studentName: data.studentName,
                         });
-                        
                       } catch (e) {
                         console.log(e);
                         setTrialFormState({
@@ -1298,8 +1301,7 @@ export function Home() {
                     }}
                     className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg text-lg mt-4"
                   >
-                    提交申請
-                  </Button>
+      {language === 'en' ? 'Submit Application' : language === 'zh-CN' ? '提交申请' : language === 'ja' ? '申請を提出' : language === 'ko' ? '신청서 제출' : '提交申請'}                  </Button>
                 </form>
               </Card>
             </>
