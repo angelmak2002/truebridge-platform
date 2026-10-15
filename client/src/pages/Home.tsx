@@ -1446,42 +1446,51 @@ export function Home() {
                   <p className="text-xs text-gray-500 pl-6">
                     {t('footer.whatsappHint')}
                   </p>
-                   <div className="flex items-center gap-2">
-    <span>📷</span>
-    <a href="https://www.instagram.com/truebridge.asia/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition">
-      IG: 澤橋網上補習平台TrueBridge @truebridge.asia
-    </a>
-  </div>
-  <div className="flex items-center gap-2">
-    <span>📘</span>
-    <a href="https://www.facebook.com/profile.php?id=61581615703639" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition">
-      FB: 澤橋網上補習平台 TrueBridge Online Tutoring Platform
-    </a>
-  </div>
-</div> 
-                </div>
-                <div className="flex items-center gap-2">
-                  <span>🔗</span>
-                  <span className="text-gray-300">
-                    {t('footer.wechat')} ID: wxid_beto3vj28dox22
-                  </span>
+                  <div className="flex items-center gap-2">
+                    <span>📷</span>
+                    <a
+                      href="https://www.instagram.com/truebridge.asia/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-300 hover:text-white transition"
+                    >
+                      IG: 澤橋網上補習平台TrueBridge @truebridge.asia
+                    </a>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span>📘</span>
+                    <a
+                      href="https://www.facebook.com/profile.php?id=61581615703639"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-300 hover:text-white transition"
+                    >
+                      FB: 澤橋網上補習平台 TrueBridge Online Tutoring Platform
+                    </a>
+                  </div>
                 </div>
               </div>
-              <div className="mt-3">
-                <img
-                  src="/manus-storage/wechat-logo-text_9ac24e17_259a7ba7.png"
-                  alt="WeChat QR"
-                  className="w-32 h-32 rounded-lg bg-white p-1"
-                />
+              <div className="flex items-center gap-2">
+                <span>🔗</span>
+                <span className="text-gray-300">
+                  {t('footer.wechat')} ID: wxid_beto3vj28dox22
+                </span>
               </div>
             </div>
+            <div className="mt-3">
+              <img
+                src="/manus-storage/wechat-logo-text_9ac24e17_259a7ba7.png"
+                alt="WeChat QR"
+                className="w-32 h-32 rounded-lg bg-white p-1"
+              />
+            </div>
+          </div>
 
-            {/* Divider */}
-            <div className="border-t border-gray-700 pt-8 mt-8">
-              <div className="text-center text-gray-400 text-sm">
-                <p>{t('footer.copyright')}</p>
-                <p className="mt-2">24/7 Customer Service Available</p>
-              </div>
+          {/* Divider */}
+          <div className="border-t border-gray-700 pt-8 mt-8">
+            <div className="text-center text-gray-400 text-sm">
+              <p>{t('footer.copyright')}</p>
+              <p className="mt-2">24/7 Customer Service Available</p>
             </div>
           </div>
         </div>
