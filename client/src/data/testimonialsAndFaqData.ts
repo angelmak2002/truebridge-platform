@@ -97,11 +97,11 @@ export const faqData: FAQ[] = [
       'ko': 'TrueBridge 과정은 어떤 학생에게 적합합니까?'
     },
     answer: {
-      'zh-HK': '我們的課程適合所有年級的學生，從小學到高中。無論您的孩子是想要提高成績、準備考試，還是想要深入學習某個科目，我們都有相應的課程。',
-      'zh-CN': '我们的课程适合所有年级的学生，从小学到高中。无论您的孩子是想要提高成绩、准备考试，还是想要深入学习某个科目，我们都有相应的课程。',
-      'en': 'Our courses are suitable for students of all grades, from primary school to high school. Whether your child wants to improve grades, prepare for exams, or study a subject in depth, we have corresponding courses.',
-      'ja': '当社のコースはすべての学年の生徒に適しており、小学校から高校までです。お子さんが成績を向上させたい、試験に備えたい、または科目を深く学びたい場合でも、対応するコースがあります。',
-      'ko': '당사의 과정은 초등학교부터 고등학교까지 모든 학년의 학생에게 적합합니다. 자녀가 성적을 향상시키거나 시험을 준비하거나 과목을 깊이 있게 학습하려는 경우 해당 과정이 있습니다.'
+      'zh-HK': '我們的課程主要面向兩類學員：一是小一至中三的內地中小學生，提供中、英、數及文言等1對1私人教授；二是希望提升職場競爭力的在職人士，提供成人實用商業普通話。其他年級或科目亦可按需求安排。',
+      'zh-CN': '我们的课程主要面向两类学员：一是小一至中三的内地中小学生，提供中、英、数及文言等1对1私人教授；二是希望提升职场竞争力的在职人士，提供成人实用商务普通话。其他年级或科目亦可按需求安排。',
+      'en': 'Our courses are designed for two main groups: (1) Mainland Chinese students from Primary 1 to Secondary 3, offering 1-on-1 private tutoring in Chinese, English, Math, and Classical Chinese; (2) working professionals seeking practical Business Mandarin. Other grades or subjects can be arranged on request.',
+      'ja': '当校のコースは主に2つの層を対象としています。1つは本土の小学1年から中学3年までの児童・生徒向けで、中文・英語・数学・文言文の1対1個別指導を提供。もう1つは、キャリアアップを目指す社会人向けの実用ビジネス中国語です。その他の学年や科目もご要望に応じて対応可能です。',
+      'ko': '저희 과정은 두 그룹을 대상으로 합니다. 첫째, 초등학교 1학년부터 중학교 3학년까지의 본토 학생을 위한 중문, 영어, 수학, 고전문 1:1 개인 과외, 둘째, 직장 경쟁력을 높이고자 하는 직장인을 위한 실용 비즈니스 중국어 과정입니다. 그 외 학년이나 과목도 요청 시安排 가능합니다.'
     }
   },
   {

@@ -85,7 +85,7 @@ export const translations: Record<Language, Record<string, string>> = {
     '張佳琦': '張佳琦',
     '盧麗華': '盧麗華',
     '老師': '老師',
-    '待定': '待定',
+    '待定': '導師招募中',
 
 
     // Trial Application
@@ -137,9 +137,12 @@ export const translations: Record<Language, Record<string, string>> = {
     'faq.title': '常見問題',
 
     // Stats
-    'stats.studentsServed': '服務學生',
-    'stats.certifiedTutors': '認證導師',
-    'stats.satisfaction': '滿意度',
+    'stats.studentsValue': '小一至中三 + 成人商務普通話',
+'stats.certifiedValue': '100% 普通話母語師範導師',
+'stats.satisfactionValue': '30分鐘免費試堂',
+'stats.studentsServed': '中、英、數及文言',
+'stats.certifiedTutors': '師範專業資格',
+'stats.satisfaction': '滿意再報',    
     // Footer
     'footer.contact': '聯絡我們',
     'footer.email': '電郵',
@@ -330,7 +333,7 @@ export const translations: Record<Language, Record<string, string>> = {
     '張佳琦': '张佳琦',
     '盧麗華': '卢丽华',
     '老師': '老师',
-    '待定': '待定',
+    '待定': '导师招募中',
 
 
     // Trial Application
@@ -382,9 +385,12 @@ export const translations: Record<Language, Record<string, string>> = {
     'faq.title': '常见问题',
 
     // Stats
-    'stats.studentsServed': '服务学生',
-    'stats.certifiedTutors': '认证导师',
-    'stats.satisfaction': '满意度',
+    'stats.studentsValue': '小一至中三 + 成人商务普通话',
+'stats.certifiedValue': '100% 普通话母语师范导师',
+'stats.satisfactionValue': '30分钟免费试堂',
+'stats.studentsServed': '中、英、数及文言',
+'stats.certifiedTutors': '师范专业资格',
+'stats.satisfaction': '满意再报',    
     // Footer
     'footer.contact': '联系我们',
     'footer.email': '电邮',
@@ -601,7 +607,7 @@ export const translations: Record<Language, Record<string, string>> = {
     '張佳琦': 'Cheung Kai Kee',
     '盧麗華': 'Lo Lai Wah',
     '老師': 'Teacher',
-    '待定': 'Pending',
+    '待定': 'Recruiting',
 
 
     // Trial Application
@@ -653,9 +659,12 @@ export const translations: Record<Language, Record<string, string>> = {
     'faq.title': 'Frequently Asked Questions',
 
     // Stats
-    'stats.studentsServed': 'Students Served',
-    'stats.certifiedTutors': 'Certified Tutors',
-    'stats.satisfaction': 'Satisfaction Rate',
+    'stats.studentsValue': 'P1-S3 + Business Mandarin',
+'stats.certifiedValue': '100% Native Mandarin Tutors',
+'stats.satisfactionValue': '30-min Free Trial',
+'stats.studentsServed': 'Chinese, English, Math',
+'stats.certifiedTutors': 'Qualified Teachers',
+'stats.satisfaction': 'Satisfaction Guaranteed',
     // Footer
     'footer.contact': 'Contact Us',
     'footer.email': 'Email',
@@ -866,7 +875,7 @@ export const translations: Record<Language, Record<string, string>> = {
     '張佳琦': '張佳琦',
     '盧麗華': '盧麗華',
     '老師': '先生',
-    '待定': '保留中',
+    '待定': '講師募集中',
 
 
     // Trial Application
@@ -918,9 +927,12 @@ export const translations: Record<Language, Record<string, string>> = {
     'faq.title': 'よくある質問',
 
     // Stats
-    'stats.studentsServed': 'サービスした学生',
-    'stats.certifiedTutors': '認定講師',
-    'stats.satisfaction': '満足度',
+   'stats.studentsValue': '小1〜中3 + ビジネス中国語',
+'stats.certifiedValue': '100% ネイティブ講師',
+'stats.satisfactionValue': '30分無料体験',
+'stats.studentsServed': '中・英・数・文言',
+'stats.certifiedTutors': '師範資格保有',
+'stats.satisfaction': '満足後申込',
     // Footer
     'footer.contact': 'お問い合わせ',
     'footer.email': 'メール',
@@ -1085,7 +1097,7 @@ export const translations: Record<Language, Record<string, string>> = {
     '張佳琦': '장가기',
     '盧麗華': '로려화',
     '老師': '선생님',
-    '待定': '대기 중',
+    '待定': '강사 모집 중',
 
 
     // Trial Application
@@ -1137,9 +1149,12 @@ export const translations: Record<Language, Record<string, string>> = {
     'faq.title': '자주 묻는 질문',
 
     // Stats
-    'stats.studentsServed': '서비스한 학생',
-    'stats.certifiedTutors': '인증 강사',
-    'stats.satisfaction': '만족도',
+    'stats.studentsValue': '小一至中三 + 成人商务普通话',
+'stats.certifiedValue': '100% 普通话母语师范导师',
+'stats.satisfactionValue': '30分钟免费试堂',
+'stats.studentsServed': '中、英、数及文言',
+'stats.certifiedTutors': '师范专业资格',
+'stats.satisfaction': '满意再报',
     // Footer
     'footer.contact': '문의',
     'footer.email': '이메일',

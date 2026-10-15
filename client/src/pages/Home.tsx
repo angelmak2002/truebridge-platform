@@ -274,16 +274,16 @@ export function Home() {
           {/* Stats */}
           <div className="mt-16 grid grid-cols-3 gap-8 text-white">
             <div>
-              <p className="text-4xl font-bold">50K+</p>
-              <p className="text-lg">{t('stats.studentsServed')}</p>
+              <p className="text-4xl font-bold">小一至中三 + 商務普通話</p>
+              <p className="text-lg">{t('stats.studentsValue')}</p>
             </div>
             <div>
-              <p className="text-4xl font-bold">10K+</p>
-              <p className="text-lg">{t('stats.certifiedTutors')}</p>
+              <p className="text-4xl font-bold">100% 母語師範</p>
+              <p className="text-lg">{t('stats.certifiedValue')}</p>
             </div>
             <div>
-              <p className="text-4xl font-bold">98%</p>
-              <p className="text-lg">{t('stats.satisfaction')}</p>
+              <p className="text-4xl font-bold">30分鐘免費試堂</p>
+              <p className="text-lg">{t('stats.satisfactionValue')}</p>
             </div>
           </div>
         </div>
@@ -1301,7 +1301,16 @@ export function Home() {
                     }}
                     className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg text-lg mt-4"
                   >
-      {language === 'en' ? 'Submit Application' : language === 'zh-CN' ? '提交申请' : language === 'ja' ? '申請を提出' : language === 'ko' ? '신청서 제출' : '提交申請'}                  </Button>
+                    {language === 'en'
+                      ? 'Submit Application'
+                      : language === 'zh-CN'
+                        ? '提交申请'
+                        : language === 'ja'
+                          ? '申請を提出'
+                          : language === 'ko'
+                            ? '신청서 제출'
+                            : '提交申請'}{' '}
+                  </Button>
                 </form>
               </Card>
             </>
@@ -1437,6 +1446,19 @@ export function Home() {
                   <p className="text-xs text-gray-500 pl-6">
                     {t('footer.whatsappHint')}
                   </p>
+                   <div className="flex items-center gap-2">
+    <span>📷</span>
+    <a href="https://www.instagram.com/truebridge.asia/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition">
+      IG: 澤橋網上補習平台TrueBridge @truebridge.asia
+    </a>
+  </div>
+  <div className="flex items-center gap-2">
+    <span>📘</span>
+    <a href="https://www.facebook.com/profile.php?id=61581615703639" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition">
+      FB: 澤橋網上補習平台 TrueBridge Online Tutoring Platform
+    </a>
+  </div>
+</div> 
                 </div>
                 <div className="flex items-center gap-2">
                   <span>🔗</span>
