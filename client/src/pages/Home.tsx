@@ -274,13 +274,13 @@ export function Home() {
           {/* Stats */}
           <div className="mt-16 grid grid-cols-3 gap-8 text-white">
             <div>
-              <p className="text-4xl font-bold">{t('hero.big1)}</p>
+              <p className="text-4xl font-bold">{t('hero.big1')}</p>
             </div>
             <div>
-              <p className="text-4xl font-bold">{t('hero.big2)}</p>
+              <p className="text-4xl font-bold">{t('hero.big2')}</p>
             </div>
             <div>
-              <p className="text-4xl font-bold">{t('hero.big3)}</p>
+              <p className="text-4xl font-bold">{t('hero.big3')}</p>
             </div>
           </div>
         </div>
