@@ -235,7 +235,7 @@ export const translations: Record<Language, Record<string, string>> = {
     'hero.cta': '立即申请免费试堂',
    'hero.big1': '小一至中三 + 成人商务普通话',
 'hero.big2': '100% 普通话母语师范导师',
-'hero.big3': '30分钟免费试堂
+'hero.big3': '30分钟免费试堂',
     '盧智欣': '卢智欣',
 
     // Features
