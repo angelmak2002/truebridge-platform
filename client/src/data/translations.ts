@@ -31,6 +31,9 @@ export const translations: Record<Language, Record<string, string>> = {
     'hero.title': '澤橋網上補習平台',
     'hero.subtitle': 'TRUE BRIDGE ONLINE TUTORING PLATFORM',
     'hero.cta': '即刻搶免費試堂',
+    'hero.big1': '小一至中三 + 成人商務普通話',
+'hero.big2': '100% 普通話母語師範導師',
+'hero.big3': '30分鐘免費試堂',
     '盧智欣': '盧智欣',
 
     // Features
@@ -137,10 +140,7 @@ export const translations: Record<Language, Record<string, string>> = {
     'faq.title': '常見問題',
 
     // Stats
-    'stats.studentsValue': '小一至中三 + 成人商務普通話',
-'stats.certifiedValue': '100% 普通話母語師範導師',
-'stats.satisfactionValue': '30分鐘免費試堂',
-'stats.studentsServed': '中、英、數及文言',
+ 'stats.studentsServed': '中、英、數及文言',
 'stats.certifiedTutors': '師範專業資格',
 'stats.satisfaction': '滿意再報',    
     // Footer
@@ -233,6 +233,9 @@ export const translations: Record<Language, Record<string, string>> = {
     'hero.title': '澳门网上补习平台',
     'hero.subtitle': 'TRUE BRIDGE ONLINE TUTORING PLATFORM',
     'hero.cta': '立即申请免费试堂',
+   'hero.big1': '小一至中三 + 成人商务普通话',
+'hero.big2': '100% 普通话母语师范导师',
+'hero.big3': '30分钟免费试堂
     '盧智欣': '卢智欣',
 
     // Features
@@ -385,9 +388,6 @@ export const translations: Record<Language, Record<string, string>> = {
     'faq.title': '常见问题',
 
     // Stats
-    'stats.studentsValue': '小一至中三 + 成人商务普通话',
-'stats.certifiedValue': '100% 普通话母语师范导师',
-'stats.satisfactionValue': '30分钟免费试堂',
 'stats.studentsServed': '中、英、数及文言',
 'stats.certifiedTutors': '师范专业资格',
 'stats.satisfaction': '满意再报',    
@@ -501,7 +501,10 @@ export const translations: Record<Language, Record<string, string>> = {
     'hero.title': 'TrueBridge Online Tutoring Platform',
     'hero.subtitle': 'Empowering Students Through Personalized Online Education',
     'hero.cta': 'Book Your Free Trial Now',
-    '盧智欣': 'Lo Chi Yan',
+    'hero.big1': 'P1-S3 + Business Mandarin',
+'hero.big2': '100% Native Mandarin Tutors',
+'hero.big3': '30-min Free Trial',
+        '盧智欣': 'Lo Chi Yan',
 
     // Features
     'features.title': 'Features',
@@ -659,9 +662,6 @@ export const translations: Record<Language, Record<string, string>> = {
     'faq.title': 'Frequently Asked Questions',
 
     // Stats
-    'stats.studentsValue': 'P1-S3 + Business Mandarin',
-'stats.certifiedValue': '100% Native Mandarin Tutors',
-'stats.satisfactionValue': '30-min Free Trial',
 'stats.studentsServed': 'Chinese, English, Math',
 'stats.certifiedTutors': 'Qualified Teachers',
 'stats.satisfaction': 'Satisfaction Guaranteed',
@@ -775,6 +775,9 @@ export const translations: Record<Language, Record<string, string>> = {
     'hero.title': 'TrueBridge オンライン家庭教師プラットフォーム',
     'hero.subtitle': 'TRUE BRIDGE ONLINE TUTORING PLATFORM',
     'hero.cta': '無料体験を申し込む',
+    'hero.big1': '小1～中3＋ビジネス中国語',
+'hero.big2': '100％ネイティブ講師',
+'hero.big3': '30分無料体験',
     '盧智欣': '盧智欣',
 
     // Features
@@ -927,10 +930,7 @@ export const translations: Record<Language, Record<string, string>> = {
     'faq.title': 'よくある質問',
 
     // Stats
-   'stats.studentsValue': '小1〜中3 + ビジネス中国語',
-'stats.certifiedValue': '100% ネイティブ講師',
-'stats.satisfactionValue': '30分無料体験',
-'stats.studentsServed': '中・英・数・文言',
+   'stats.studentsServed': '中・英・数・文言',
 'stats.certifiedTutors': '師範資格保有',
 'stats.satisfaction': '満足後申込',
     // Footer
@@ -1043,6 +1043,9 @@ export const translations: Record<Language, Record<string, string>> = {
     'hero.title': 'TrueBridge 온라인 과외 플랫폼',
     'hero.subtitle': 'TRUE BRIDGE ONLINE TUTORING PLATFORM',
     'hero.cta': '무료 체험 신청하기',
+    'hero.big1': '초1~중3 + 비즈니스 중국어',
+'hero.big2': '100% 원어민 튜터',
+'hero.big3': '30분 무료 체험',
     '盧智欣': '로 치 얌',
 
     // Features
@@ -1149,12 +1152,9 @@ export const translations: Record<Language, Record<string, string>> = {
     'faq.title': '자주 묻는 질문',
 
     // Stats
-    'stats.studentsValue': '小一至中三 + 成人商务普通话',
-'stats.certifiedValue': '100% 普通话母语师范导师',
-'stats.satisfactionValue': '30分钟免费试堂',
-'stats.studentsServed': '中、英、数及文言',
-'stats.certifiedTutors': '师范专业资格',
-'stats.satisfaction': '满意再报',
+'stats.studentsServed': '중문·영어·수학',
+'stats.certifiedTutors': '사범 자격 보유',
+'stats.satisfaction': '만족 후 등록',
     // Footer
     'footer.contact': '문의',
     'footer.email': '이메일',

@@ -274,16 +274,13 @@ export function Home() {
           {/* Stats */}
           <div className="mt-16 grid grid-cols-3 gap-8 text-white">
             <div>
-              <p className="text-4xl font-bold">小一至中三 + 商務普通話</p>
-              <p className="text-lg">{t('stats.studentsValue')}</p>
+              <p className="text-4xl font-bold">{t('hero.big1)}</p>
             </div>
             <div>
-              <p className="text-4xl font-bold">100% 母語師範</p>
-              <p className="text-lg">{t('stats.certifiedValue')}</p>
+              <p className="text-4xl font-bold">{t('hero.big2)}</p>
             </div>
             <div>
-              <p className="text-4xl font-bold">30分鐘免費試堂</p>
-              <p className="text-lg">{t('stats.satisfactionValue')}</p>
+              <p className="text-4xl font-bold">{t('hero.big3)}</p>
             </div>
           </div>
         </div>
@@ -739,7 +736,7 @@ export function Home() {
                 className="p-3 h-[150px] bg-gray-100 border-2 border-dashed border-gray-300 flex items-center justify-center"
               >
                 <p className="text-gray-500 font-semibold">
-                  <Translate>待定</Translate>
+                  <Translate>導師招募中</Translate>
                 </p>
               </Card>
             ))}
@@ -1476,13 +1473,6 @@ export function Home() {
                   {t('footer.wechat')} ID: wxid_beto3vj28dox22
                 </span>
               </div>
-            </div>
-            <div className="mt-3">
-              <img
-                src="/manus-storage/wechat-logo-text_9ac24e17_259a7ba7.png"
-                alt="WeChat QR"
-                className="w-32 h-32 rounded-lg bg-white p-1"
-              />
             </div>
           </div>
 

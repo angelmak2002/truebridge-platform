@@ -295,7 +295,7 @@ setFormData({
               style={{ backgroundColor: "#2563eb", color: "#ffffff" }}
               className="w-full hover:opacity-90 disabled:opacity-60 font-bold py-4 text-lg rounded-lg transition-opacity"
             >
-               提交申請
+               {t("apply.submit")}
             </button>
 
             {/* Info */}
